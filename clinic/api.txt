@@ -1,0 +1,15 @@
+users
+register => send email, encrypt password => done
+login => done
+logout (all devices, only current device)
+edit password(old password, new password)
+edit profile
+change pImage => as file
+activate account=>
+
+posts=> 
+if login (middleware)
+- add => done
+- edit his posts
+-show all posts (all, his) => done
+- delete his posts

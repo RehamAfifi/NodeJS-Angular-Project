@@ -1,0 +1,17 @@
+ahmed sayed, zyad => 
+    Ecommerce => admin , buyer 
+    admin=>  (categories, sub category, products), show orders
+    user => add To cart, proceed order
+ahmed sameh => filghts system
+ahmed samir => Ecommerce
+hasan => football school
+rania => library 
+reham => clinic booking
+sarah => Ecommerce
+maged => Ecommerce
+mahmoud => 
+omar =>
+ 
+
+category => cats, sub cats => parent=> 0, 125542555, => _id, title, parent, image
+products=> name, ....., catId
