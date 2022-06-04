@@ -1,0 +1,7 @@
+<div class="container">
+    <form #uploadImg="ngForm" (ngSubmit)="handleSubmit()">
+        <input type="file" class="form-control" (change)="handleImg($event)">
+        <input type="text" [(ngModel)]="modal.name" name="name">
+        <button class="btn btn-primary">upload Image</button>
+    </form>
+</div>
