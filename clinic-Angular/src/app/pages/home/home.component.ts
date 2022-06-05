@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { GlobalService } from 'src/app/services/global.service';
 
 @Component({
@@ -15,8 +16,10 @@ export class HomeComponent implements OnInit {
     //   console.log(data))}
     this.global.allu().subscribe(data=>{
        console.log(data) 
-       this.docs=data
-       console.log(this.docs+"reham")  })
+       this.docs=data.data
+       console.log(this.docs[0].name) 
+      return this.docs })
+     
   }
 
 }

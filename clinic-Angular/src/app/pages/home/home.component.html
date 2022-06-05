@@ -1,22 +1,55 @@
-<div class="back">
+<!-- <div class="back">
 <div class="container">
     <div class="row">
         <div class="col-12">
             <div class="col-4">
                 <div class="card">
                     <div class="card-body">
-                       <h1> Home page</h1>
-                        <!-- <img src="{{global.imgUrl}}{{item.img}}" alt=""> -->
+                       
+                      <img src="{{global.imgUrl}}{{item.img}}" alt=""> -->
                         <!-- {{global.allu()}} -->
                         <!-- <div class="col-12 col-md-4" *ngFor="let doc of docs">
                             <div >doc.name</div> -->
                       <!-- <div>{{docs[0].name}}</div> -->
                         <!-- /images/depositphotos_10643314-stock-photo-stethoscope-on-white-background-close.jpg -->
-                    </div>
-                </div>
+                    <!-- </div>
+                </div> -->
                 <!-- <img src="assets/images/clin.jpg" alt="med"> -->
 
-            </div>
+            <!-- </div>
         </div>
     </div>
-</div></div>
+</div></div> --> -->
+
+<!-- [formGroup]="loginForm" (ngSubmit)="handleLogin()" -->
+
+<!-- <Reactive Form -->
+<div class="container">
+    <h1 class="text-center text-danger"> Book an Appointment Now </h1>
+<form class="row gy-4 mt-5" >
+        <div class="col-12 col-md-6">
+            <input type="name" class="form-control" 
+            placeholder="enter your name" 
+            formControlName="name">
+            </div>
+     
+        <div class="col-12 col-md-6">
+            <input type="email" class="form-control" placeholder="enter your email" formControlName="email">
+        </div>
+        <div class="col-12 col-md-6">
+            <input type="number" class="form-control" placeholder="enter your age" formControlName="age">
+
+        </div>
+        <div class="col-12 col-md-6">
+            <input type="phone" class="form-control" placeholder="enter your phone" formControlName="phone">
+
+        </div>
+        <div class="col-12 col-md-6" >
+          
+            <select class="form-select"  >
+                <option selected  >select the Doctor</option>
+                <option *ngFor="let doc of docs; index as i"  value="{{docs[i].name}}">{{docs[i].name}}</option>
+              </select></div>
+            <!-- <div *ngFor="let doc of docs; index as i"> {{docs[i].name}}</div>  -->
+            <button class="btn btn-primary">Book</button>
+            
