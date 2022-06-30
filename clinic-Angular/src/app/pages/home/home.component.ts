@@ -4,16 +4,16 @@ import { GlobalService } from 'src/app/services/global.service';
 
 @Component({
   selector: 'app-home',
-  templateUrl: './home.component.html',
+  templateUrl:'./home.component.html',
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
 
   constructor(public global :GlobalService) { }
   docs:any=[]
+  model:any={}
+  // days2=[]
   ngOnInit(): void {
-    // this.global.loadRoles().subscribe(data=>{
-    //   console.log(data))}
     this.global.allu().subscribe(data=>{
        console.log(data) 
        this.docs=data.data
@@ -21,7 +21,18 @@ export class HomeComponent implements OnInit {
       return this.docs })
      
   }
+getDdays(){ }
+  handleSubmit1(reg:NgForm){
+      console.log(reg)
+      console.log(this.model) 
+      this.global.book(this.model).subscribe(res=>{
+        console.log(res)
+      })
+    
+  }
 
 }
+
+
 
 

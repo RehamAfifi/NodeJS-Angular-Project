@@ -20,15 +20,12 @@ export class GlobalService {
   allu():Observable<any>{
     return this.http.get(this.allUrl)
   }
-  // loadRoles():Observable<any>{
-  //   return this.http.get(`${this.urlPath}loadRoles/1`)
-  // }
-  // uploadImg(obj:any):Observable<any>{
-  //   return this.http.post(`${this.urlPath}StoreAccountImages` , obj)
-  // }
     uploadImg(obj:any):Observable<any>{
     return this.http.patch(`${this.imgUrl}user /changeImage` , obj)
     
   }
+book(obj:any):Observable<any>{
+  return this.http.post(`${this.imgUrl}patient/register`, obj )
+}
 
 }

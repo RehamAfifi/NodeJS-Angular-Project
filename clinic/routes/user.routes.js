@@ -14,7 +14,7 @@ router.patch('/editPassword', auth, doctors.editPassword)
 router.patch('/editdoctors', auth, doctors.editdoctors)
 router.patch('/activate', auth, doctors.activate)
 router.patch('/activateWithoutLogin', doctors.activateWithoutLogin)
- router.patch('/changeImage', auth, upload.single('doctorsImg'), doctors.changeImage)
+router.patch('/changeImage', auth, upload.single('doctorsImg'), doctors.changeImage)
 
 router.get("/all/:pageNum/:limit", doctors.alldoctorss)
 router.get("/all/:id", doctors.singledoctors)

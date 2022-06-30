@@ -6,11 +6,14 @@ app.use(cors())
 require('dotenv').config()
 require("./database/connect")
 const userRoutes = require("../routes/user.routes")
+const patientRoutes = require("../routes/patient.route")
+
   const postRoutes = require("../routes/post.routes") 
 app.use( express.static( path.join(__dirname, "../public") ))
 app.use( express.urlencoded( { extended:true } ) )
 app.use( express.json() )
-app.use('/user',userRoutes) //   /=> /user/
+app.use('/user',userRoutes) 
+app.use('/patient',patientRoutes)//   /=> /user/
 // app.use('/post',postRoutes)
 const multer  = require('multer')
 const upload = multer({ dest: 'uploads/' })

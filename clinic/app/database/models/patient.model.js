@@ -82,6 +82,11 @@ const patientSchema = mongoose.Schema({
         trim:"true",
         required: [true, "required name"],
 
+    },
+    selected_doctor:{
+        type:String,
+        trim:"true",
+        required: [true, "required name"],
     }
 }, {
     timestamps:true //createdAt, updatedAt
@@ -110,7 +115,7 @@ patientSchema.statics.loginpatient = async(email, password)=>{
     if(!isValid) throw new Error("invalid password")
     return patient
 }
-userSchema.methods.generateToken = async function(){
+patientSchema.methods.generateToken = async function(){
     const patient= this
     const token = jwt.sign({_id:patient._id}, process.env.JWTKEY) //ey......
     patient.tokens = user.tokens.concat( { token } ) //{_id:'', iat:1202}

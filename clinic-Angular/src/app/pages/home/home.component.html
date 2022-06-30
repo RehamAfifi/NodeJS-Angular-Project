@@ -1,55 +1,56 @@
-<!-- <div class="back">
-<div class="container">
-    <div class="row">
-        <div class="col-12">
-            <div class="col-4">
-                <div class="card">
-                    <div class="card-body">
-                       
-                      <img src="{{global.imgUrl}}{{item.img}}" alt=""> -->
-                        <!-- {{global.allu()}} -->
-                        <!-- <div class="col-12 col-md-4" *ngFor="let doc of docs">
-                            <div >doc.name</div> -->
-                      <!-- <div>{{docs[0].name}}</div> -->
-                        <!-- /images/depositphotos_10643314-stock-photo-stethoscope-on-white-background-close.jpg -->
-                    <!-- </div>
-                </div> -->
-                <!-- <img src="assets/images/clin.jpg" alt="med"> -->
 
-            <!-- </div>
-        </div>
-    </div>
-</div></div> --> -->
-
-<!-- [formGroup]="loginForm" (ngSubmit)="handleLogin()" -->
-
-<!-- <Reactive Form -->
 <div class="container">
     <h1 class="text-center text-danger"> Book an Appointment Now </h1>
-<form class="row gy-4 mt-5" >
+
+<form  #booking="ngForm"   (ngSubmit)="handleSubmit1
+(booking)"class="row gy-4 mt-5" >
+{{booking.value|json}}
+{{booking.value.selected_doctor}}
+
         <div class="col-12 col-md-6">
-            <input type="name" class="form-control" 
-            placeholder="enter your name" 
-            formControlName="name">
+            <input type="name" class="form-control" placeholder="enter your name"  name="name" [(ngModel)]="model.name" >
             </div>
-     
         <div class="col-12 col-md-6">
-            <input type="email" class="form-control" placeholder="enter your email" formControlName="email">
+            <input type="email"  name="email" #email="ngModel" required email placeholder="enter your email" [(ngModel)]="model.email"  >
         </div>
         <div class="col-12 col-md-6">
-            <input type="number" class="form-control" placeholder="enter your age" formControlName="age">
+            <input type="password" class="form-control" placeholder="enter your Password"
+                [(ngModel)]="model.password" name="password" #password="ngModel" required>
+        </div>
+        <div class="col-12 col-md-6">
+            <input type="number" 
+            class="form-control" placeholder="enter your age" [(ngModel)]="model.age" name="age" #age="ngModel"  >
 
         </div>
         <div class="col-12 col-md-6">
-            <input type="phone" class="form-control" placeholder="enter your phone" formControlName="phone">
+            <input type="tel"  placeholder="enter your phone"  name="phone" #phone="ngModel" [(ngModel)]="model.phone"  required>
 
         </div>
+        <div class="col-12 col-md-6">
+        <select class="form-select"  [(ngModel)]="model.gender" name="gender" >
+            <option selected>select Your Gender</option>
+            <option  value="female">female</option>
+            <option  value="male">male</option>
+        </select>
+    </div>
+        
         <div class="col-12 col-md-6" >
           
-            <select class="form-select"  >
-                <option selected  >select the Doctor</option>
+            <select class="form-select" [(ngModel)]="model.selected_doctor" name="selected_doctor"  >
+                <option selected>select the Doctor</option>
                 <option *ngFor="let doc of docs; index as i"  value="{{docs[i].name}}">{{docs[i].name}}</option>
-              </select></div>
-            <!-- <div *ngFor="let doc of docs; index as i"> {{docs[i].name}}</div>  -->
-            <button class="btn btn-primary">Book</button>
+            </select>
+  </div>
+  <div>
+        <select class="form-select" [(ngModel)]="model.appointmentday" name="appointmentday" 
+        (ngModelChange)="getDdays()" >
+            <option  selected>select the appointment day</option>
+        
+           <ng-container *ngFor="let doc of docs; index as i">
+        <option  {{booking.value.selected_doctor==docs[i].name}} ? value="doc.available_days">doc.available_days</option>
+    </ng-container>
+        </select>
+
+    </div>
+        <button class="btn btn-primary">Book</button>
             
